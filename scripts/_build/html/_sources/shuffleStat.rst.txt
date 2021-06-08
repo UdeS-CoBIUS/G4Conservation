@@ -1,0 +1,5 @@
+shuffleStat
+===========
+ 
+.. automodule:: shuffleStat
+  :members:

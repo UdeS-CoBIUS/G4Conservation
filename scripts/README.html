@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Welcome to G4Conservation documentation! &mdash; G4Conservation 1 documentation</title>
+
+
+
+  <link rel="stylesheet" href="_build/html/_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_build/html/_static/pygments.css" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_build/html/_static/jquery.js"></script>
+        <script type="text/javascript" src="_build/html/_static/underscore.js"></script>
+        <script type="text/javascript" src="_build/html/_static/doctools.js"></script>
+        <script type="text/javascript" src="_build/html/_static/language_data.js"></script>
+
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+    <link rel="index" title="Index" href="_build/html/genindex.html" />
+    <link rel="search" title="Search" href="_build/html/search.html" />
+    <link rel="next" title="G4Annotation" href="_build/html/G4Annotation.html" />
+</head>
+
+<body class="wy-body-for-nav">
+
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+            <a href="#" class="icon icon-home"> G4Conservation
+
+
+
+          </a>
+
+
+
+
+              <div class="version">
+                1
+              </div>
+
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+
+
+
+
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/G4Annotation.html">G4Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/G4AnnotationGene.html">G4AnnotationGene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/generateSequences.html">generateSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/GeneSequences.html">GeneSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/getDataFig.html">getDataFig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/getMainDensities.html">getMainDensities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/Parser_gtf.html">Parser_gtf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/shuffleStat.html">shuffleStat</a></li>
+</ul>
+
+
+
+        </div>
+
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" aria-label="top navigation">
+
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">G4Conservation</a>
+
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+        <div class="rst-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+
+      <li>Welcome to G4Conservation documentation!</li>
+
+
+      <li class="wy-breadcrumbs-aside">
+
+
+            <a href="_build/html/_sources/index.rst.txt" rel="nofollow"> View page source</a>
+
+
+      </li>
+
+  </ul>
+
+
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <div class="section" id="welcome-to-g4conservation-documentation">
+<h1>Welcome to G4Conservation documentation!<a class="headerlink" href="#welcome-to-g4conservation-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This project aims to predict G-quadruplexes (G4) in genes and transcriptomes species.</p>
+</div>
+<div class="section" id="data-availability">
+<h1>Data availability<a class="headerlink" href="#data-availability" title="Permalink to this headline">¶</a></h1>
+<p><cite>Archive data</cite>.</p>
+<p>If the upper link is not working, the snakemake pipeline can be executed.</p>
+<p>Here is a global pipeline of how to use those scripts : <img alt="H" src="_build/html/_images/dag.png" /></p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>To use all scripts in this project you will need to have python2.7 for G4RNA screener and python3 for the other scripts.</p>
+<p>You will also need to install G4RNA Screener from
+<a class="reference external" href="http://gitlabscottgroup.med.usherbrooke.ca/J-Michel/g4rna_screener.git">Michelle Scott gitlab</a>.</p>
+<p>Following is procedure to install G4RNA screener</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">gitlabscottgroup</span><span class="o">.</span><span class="n">med</span><span class="o">.</span><span class="n">usherbrooke</span><span class="o">.</span><span class="n">ca</span><span class="o">/</span><span class="n">J</span><span class="o">-</span><span class="n">Michel</span><span class="o">/</span><span class="n">g4rna_screener</span><span class="o">.</span><span class="n">git</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">biopython</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">PyBrain</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">regex</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">scipy</span>
+<span class="n">cd</span> <span class="n">PATH</span><span class="o">/</span><span class="n">TO</span><span class="o">/</span><span class="n">PYTHON</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span>    <span class="ow">or</span>    <span class="n">cd</span> <span class="n">PATH</span><span class="o">/</span><span class="n">TO</span><span class="o">/</span><span class="n">PYTHON</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">i</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="o">.</span><span class="n">mysql</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">get</span><span class="o">/</span><span class="n">Downloads</span><span class="o">/</span><span class="n">Connector</span><span class="o">-</span><span class="n">Python</span><span class="o">/</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mf">4.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">xzf</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mf">4.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>To install snakemake, do as follow</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<span class="n">mkdir</span> <span class="n">software</span>
+<span class="n">cd</span> <span class="n">software</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">continuum</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">miniconda</span><span class="o">/</span><span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">bash</span> <span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">exec</span> <span class="n">bash</span>
+<span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">smake</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">snakemake</span><span class="o">=</span><span class="mf">5.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">smake</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>Except for snakemake and G4RNA screener explained earlier, there is no particular installation because their is only individual home made
+scripts. Here is a soft description of them:</p>
+<ul class="simple">
+<li>ReplaceInformation.py -&gt; This script aims to create
+junction between exons and also compute the coordinates of introns.
+To do that, this script takes as a file with informations about transcripts.
+This file is avaible in Ensembl and downable with Biomart.</li>
+<li>G4RNA Screener -&gt; used on fasta files with genes and junction.</li>
+<li>all G4Annotation -&gt; filters pG4 and add there location and biotype. Inputs are
+output from G4RNA Screener, the parsed file containing introns coordinates and
+also a file containing transcripts’s biotype (available on Ensembl).</li>
+<li>G4Calcul.py -&gt; computes all statistics and enrichment about our pG4.</li>
+<li>Coverage.py -&gt; computes coverage between different data set. Takes as input
+3 data set : pG4, G4RNA G4 and G4 from rG4seq study.</li>
+<li>recurentFunction -&gt; little library of functions that are often used.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/G4Annotation.html">G4Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/G4AnnotationGene.html">G4AnnotationGene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/generateSequences.html">generateSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/GeneSequences.html">GeneSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/getDataFig.html">getDataFig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/getMainDensities.html">getMainDensities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/Parser_gtf.html">Parser_gtf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_build/html/shuffleStat.html">shuffleStat</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="command-lines">
+<h1>Command lines<a class="headerlink" href="#command-lines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="first-step-on-a-local-machine-configuration-and-data-retrival">
+<h2>First step, on a local machine : configuration and data retrival<a class="headerlink" href="#first-step-on-a-local-machine-configuration-and-data-retrival" title="Permalink to this headline">¶</a></h2>
+<p>Go to the folder were you want to make this project or create one. You need
+to launch scripts from this folder or you will have to change paths.</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone
+<span class="nb">cd</span>
+snakemake -j <span class="m">700</span> --use-conda --immediate-submit --notemp --cluster-config cluster.json --cluster <span class="s1">&#39;python3 slurmSubmit.py {dependencies}&#39;</span> -n
+</pre></div>
+</td></tr></table></div>
+<p>When the pipeline worked one time, G4RNAscreener might not have been launch on all splitted file, so you need to do it a second time :</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="k">for</span> sp in <span class="k">$(</span>ls data<span class="k">)</span><span class="p">;</span> <span class="k">do</span> rm data/<span class="nv">$sp</span>/pG4*<span class="p">;</span> <span class="k">done</span>
+ <span class="k">for</span> sp in <span class="k">$(</span>ls data<span class="k">)</span><span class="p">;</span> <span class="k">do</span> rm data/<span class="nv">$sp</span>/all*<span class="p">;</span> <span class="k">done</span>
+ <span class="k">for</span> sp in <span class="k">$(</span>ls data<span class="k">)</span><span class="p">;</span> dorm -r -f data/<span class="nv">$sp</span>/Figu*<span class="p">;</span> <span class="k">done</span>
+ sbatch scripts/testNbSpliCSV.sh <span class="c1">#this command check if there are split file that did not go through G4RNA screener</span>
+ snakemake -j <span class="m">700</span> --use-conda --immediate-submit --notemp --cluster-config cluster.json --cluster <span class="s1">&#39;python3 slurmSubmit.py {dependencies}&#39;</span> -n
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="G4Annotation.html" class="btn btn-neutral float-right" title="G4Annotation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anaïs Vannutelli.
+
+    </p>
+  </div>
+
+
+
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+
+
+
+
+</body>
+</html>

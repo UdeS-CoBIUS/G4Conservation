@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>getDataFig &mdash; G4Conservation 1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="getMainDensities" href="getMainDensities.html" />
+    <link rel="prev" title="GeneSequences" href="GeneSequences.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> G4Conservation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="G4Annotation.html">G4Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="G4AnnotationGene.html">G4AnnotationGene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generateSequences.html">generateSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneSequences.html">GeneSequences</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">getDataFig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getMainDensities.html">getMainDensities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parser_gtf.html">Parser_gtf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shuffleStat.html">shuffleStat</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">G4Conservation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>getDataFig</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/getDataFig.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-getDataFig">
+<span id="getdatafig"></span><h1>getDataFig<a class="headerlink" href="#module-getDataFig" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>Copyright:</dt>
+<dd>Copyright Universite of Sherbrooke, departement of biochemistry and
+departement     of computation.</dd>
+<dt>Date:</dt>
+<dd>September 2019</dd>
+<dt>Description:</dt>
+<dd><dl class="first last docutils">
+<dt>With the output file of getMainDensities.py, this script compute all other</dt>
+<dd>statistics needed. There is one tsv output by figure.</dd>
+</dl>
+</dd>
+<dt>Command Line:</dt>
+<dd>For one chr : python ~/PATH/getDataFig.py</dd>
+</dl>
+<dl class="function">
+<dt id="getDataFig.computeDensity">
+<code class="descclassname">getDataFig.</code><code class="descname">computeDensity</code><span class="sig-paren">(</span><em>df</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.computeDensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes densities of pG4.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>DataFrame</em>) – contains number of pG4.</li>
+<li><strong>type</strong> (<em>string</em>) – location type, either point or segment.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">tmp, updated with pG4 densities.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.computePercent">
+<code class="descclassname">getDataFig.</code><code class="descname">computePercent</code><span class="sig-paren">(</span><em>dico</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.computePercent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes percentage of transcript with pG4.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dico</strong> (<em>dictionnary</em>) – number of transcript with at least one pG4 and tot tr.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dico, update with the percentage of transcript with pG4.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionnary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.computePercentage">
+<code class="descclassname">getDataFig.</code><code class="descname">computePercentage</code><span class="sig-paren">(</span><em>df</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.computePercentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes densities of pG4.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>DataFrame</em>) – contains number of pG4.</li>
+<li><strong>type</strong> (<em>string</em>) – location type, either point or segment.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">tmp, updated with pG4 densities.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.fillEmptyClassLoc">
+<code class="descclassname">getDataFig.</code><code class="descname">fillEmptyClassLoc</code><span class="sig-paren">(</span><em>dico1</em>, <em>dico2</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.fillEmptyClassLoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add 0 when no pG4 exist in a location/transcript class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dico1</strong> (<em>dictionnary</em>) – csv informations.</li>
+<li><strong>dico2</strong> – pG4 informations.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dico2, contains data for a location figure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionnary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.getAllLocNum">
+<code class="descclassname">getDataFig.</code><code class="descname">getAllLocNum</code><span class="sig-paren">(</span><em>df</em>, <em>suf</em>, <em>type</em>, <em>dftype</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.getAllLocNum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the number of locations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – contains pG4 informations depending on the dataset.</li>
+<li><strong>suf</strong> (<em>string</em>) – either pG4 or tr</li>
+<li><strong>type</strong> (<em>string</em>) – either class or biotype</li>
+<li><strong>dftype</strong> (<em>string</em>) – either ‘Shuff’ or ‘WT’</li>
+<li><strong>nameClass</strong> (<em>string</em>) – name of the class we want to get the data.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dicoNbLoc, contains data for a location figure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionnary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.getDensitiesByClass">
+<code class="descclassname">getDataFig.</code><code class="descname">getDensitiesByClass</code><span class="sig-paren">(</span><em>df</em>, <em>dfCsv</em>, <em>dfWT</em>, <em>dfShuffle</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.getDensitiesByClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes densities for all transcripts class of a species.</p>
+<p>When looking at a class, only exon and intron are concider to avoid
+redondance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>DataFrame</em>) – contains densities of all loc-bt of a species.</li>
+<li><strong>dfCsv</strong> (<em>DataFrame</em>) – contains all locations information of a species.</li>
+<li><strong>dfWT</strong> (<em>DataFrame</em>) – contains all pG4 found in WT dataset.</li>
+<li><strong>dfShuffle</strong> (<em>DataFrame</em>) – contains all pG4 found in Shuffled dataset.</li>
+<li><strong>Global</strong> (<em>DataFrame</em>) – contains all transcripts classes of a species.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.getFigBysubClass">
+<code class="descclassname">getDataFig.</code><code class="descname">getFigBysubClass</code><span class="sig-paren">(</span><em>df</em>, <em>dfCsv</em>, <em>dfWT</em>, <em>dfShuffle</em>, <em>nameClass</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.getFigBysubClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as for figure 3 but for subclass level.</p>
+<p>This function aims to filter the input dataFrame to get information about
+pG4r at class and subclass level. The final dataFrame contains
+information to make lolipop plot for GC content, densities and number
+of transcript.
+The glaobal statistic are cuomputed for each location and each informations
+(GC, densities, percent).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – contains all informations for all biotype locations.</li>
+<li><strong>dfCsv</strong> (<em>dataFrame</em>) – contains all locations.</li>
+<li><strong>dfWT</strong> (<em>dataFrame</em>) – contains all WT pG4.</li>
+<li><strong>dfShuffle</strong> (<em>dataFrame</em>) – contains all shuffled pG4.</li>
+<li><strong>nameClass</strong> (<em>string</em>) – name of the class we want to get the data (Coding, LongNC,
+Pseudogene).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">classDf, contains data for a location figure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.getFigDensityByLocation">
+<code class="descclassname">getDataFig.</code><code class="descname">getFigDensityByLocation</code><span class="sig-paren">(</span><em>df</em>, <em>dfCsv</em>, <em>dfWT</em>, <em>dfShuffle</em>, <em>nameClass</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.getFigDensityByLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the data frame for figure with pG4r densities by location.</p>
+<p>This function aims to filter the input dataFrame to get information about
+pG4r at location level. The final dataFrame contains information to make
+lolipop plot for GC content, densities and number of location figure for
+segmental and point locations
+The glaobal statistic are cuomputed for each location and each informations
+(GC, densities, percent).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – contains all informations for all biotype locations.</li>
+<li><strong>dfCsv</strong> (<em>dataFrame</em>) – contains all locations.</li>
+<li><strong>dfWT</strong> (<em>dataFrame</em>) – contains all WT pG4.</li>
+<li><strong>dfShuffle</strong> (<em>dataFrame</em>) – contains all shuffled pG4.</li>
+<li><strong>nameClass</strong> (<em>string</em>) – name of the class we want to get the data (Coding, LongNC,
+Pseudogene).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">classDf, contains data for a location figure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.getGroupTrNb">
+<code class="descclassname">getDataFig.</code><code class="descname">getGroupTrNb</code><span class="sig-paren">(</span><em>df</em>, <em>feature</em>, <em>dftype</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.getGroupTrNb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes densities for all class/biotype of a species.</p>
+<p>When looking at a class, only exon and intron are concider to avoid
+redondance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>DataFrame</em>) – contains all pG4 of a feature and dataset type.</li>
+<li><strong>feature</strong> (<em>string</em>) – either class or biotype.</li>
+<li><strong>dftype</strong> (<em>string</em>) – either ‘Shuff’ or ‘WT’</li>
+<li><strong>dicoNbTrClass</strong> (<em>dictionnary</em>) – contains number of transcript by class/biotype.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.getNbTrByFeature">
+<code class="descclassname">getDataFig.</code><code class="descname">getNbTrByFeature</code><span class="sig-paren">(</span><em>dfCsv</em>, <em>dfWT</em>, <em>dfShuffle</em>, <em>feature</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.getNbTrByFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes densities for all class/biotype of a species.</p>
+<p>When looking at a class, only exon and intron are concider to avoid
+redondance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dfCsv</strong> (<em>DataFrame</em>) – contains all locations information of a species.</li>
+<li><strong>dfWT</strong> (<em>DataFrame</em>) – contains all pG4 found in WT dataset.</li>
+<li><strong>dfShuffle</strong> (<em>DataFrame</em>) – contains all pG4 found in Shuffled dataset.</li>
+<li><strong>feature</strong> (<em>string</em>) – either class or biotype.</li>
+<li><strong>dicoNbTrClass</strong> (<em>dictionnary</em>) – contains number of transcript by class/biotype</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.removeBiotype">
+<code class="descclassname">getDataFig.</code><code class="descname">removeBiotype</code><span class="sig-paren">(</span><em>df</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.removeBiotype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes from a data frame, informations of some biotype we don’t want.</p>
+<p>A lot of biotypes are removed for mainly 2 reasons : the biotype doesn’t
+have enough transcript (less than 50) or the biotype is present in
+less than 10 different species.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df</strong> (<em>DataFrame</em>) – origin dataframe with all biotypes.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">updated dataframe with only biotype of interest</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">DataFrame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getDataFig.sumSubTable">
+<code class="descclassname">getDataFig.</code><code class="descname">sumSubTable</code><span class="sig-paren">(</span><em>group</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#getDataFig.sumSubTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>sum columns a groupBy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>group</strong> (<em>DataFrame</em>) – contains a groupBy information.</li>
+<li><strong>name</strong> (<em>string</em>) – name of the groupBy.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">row, contains global information of a group.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionnary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="getMainDensities.html" class="btn btn-neutral float-right" title="getMainDensities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="GeneSequences.html" class="btn btn-neutral float-left" title="GeneSequences" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anaïs Vannutelli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

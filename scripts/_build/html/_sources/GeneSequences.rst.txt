@@ -1,0 +1,5 @@
+GeneSequences
+=============
+ 
+.. automodule:: GeneSequences
+  :members:

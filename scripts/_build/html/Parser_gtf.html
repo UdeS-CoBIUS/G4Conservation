@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Parser_gtf &mdash; G4Conservation 1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="shuffleStat" href="shuffleStat.html" />
+    <link rel="prev" title="getMainDensities" href="getMainDensities.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> G4Conservation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="G4Annotation.html">G4Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="G4AnnotationGene.html">G4AnnotationGene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generateSequences.html">generateSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneSequences.html">GeneSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getDataFig.html">getDataFig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getMainDensities.html">getMainDensities</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parser_gtf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shuffleStat.html">shuffleStat</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">G4Conservation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Parser_gtf</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Parser_gtf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-Parser_gtf">
+<span id="parser-gtf"></span><h1>Parser_gtf<a class="headerlink" href="#module-Parser_gtf" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>Copyright:</dt>
+<dd>Copyright Universite of Sherbrooke, departement of biochemistry and
+departement of computation.</dd>
+<dt>Date:</dt>
+<dd>Jully 2020</dd>
+<dt>Description:</dt>
+<dd>This script aim to parse a gtf file into a tsv file. It imports a gtf file,
+and computes all locations used in this study (intron, codon start and stop,
+junction). Once those locations are computed, all informations are exported
+as a csv to get a faster access for further scripts. Also, to be more
+efficient, this script is run for each chromosome of a specie and then
+agglamerate together.</dd>
+</dl>
+<dl class="function">
+<dt id="Parser_gtf.addAcctepor">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addAcctepor</code><span class="sig-paren">(</span><em>df</em>, <em>dicoTr</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addAcctepor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a row for a new acceptor junction.</p>
+<p>Creates a dictionary with all information about the new acceptor. This dico
+will be parsed into a dataFrame row.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – df with gtf informations.</li>
+<li><strong>dicoTr</strong> (<em>dictionary</em>) – contains transcript informations to find if the acceptor
+coords are over the transcript.</li>
+<li><strong>start</strong> (<em>int</em>) – intron strat.</li>
+<li><strong>end</strong> (<em>int</em>) – intron end.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:returns:row, contains all information about the new acceptor.
+:rtype: dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addBiotype">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addBiotype</code><span class="sig-paren">(</span><em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addBiotype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply function to retrieve the biotype of a transcript.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<em>string</em>) – all attributes from the gtf file, corresponds to the
+ninth column of the file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">biotype of the transcript.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addCodon">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addCodon</code><span class="sig-paren">(</span><em>df</em>, <em>dicoTr</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addCodon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds codons location and change their coords.</p>
+<p>Codons are added appart from other location basiquely present in the gtf
+to easly modified their coords. Codons coords are changed to fit with the
+length of point location (40 nucleotides upstream and downstream of the
+site). The case were this window would go over the transcript is taken in
+account and coords are made to not go over those of a transcript.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – df with gtf informations.</li>
+<li><strong>dicoTr</strong> (<em>dictionary</em>) – contains transcript informations to find if the new coords
+of codons are over the transcript.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:returns:dfTmpCodon, contains all codons locations.
+:rtype: dataFrame</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addDonor">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addDonor</code><span class="sig-paren">(</span><em>df</em>, <em>dicoTr</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addDonor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a row for a new donor junction.</p>
+<p>Creates a dictionary with all information about the new donor. This dico
+will be parsed into a dataFrame row.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – df with gtf informations.</li>
+<li><strong>dicoTr</strong> (<em>dictionary</em>) – contains transcript informations to find if the donor coords
+are over the transcript.</li>
+<li><strong>start</strong> (<em>int</em>) – intron strat.</li>
+<li><strong>end</strong> (<em>int</em>) – intron end.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:returns:row, contains all information about the new donor.
+:rtype: dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addGene">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addGene</code><span class="sig-paren">(</span><em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addGene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply function to retrieve the transcript id of a feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<em>string</em>) – all attributes from the gtf file, corresponds to the
+ninth column of the file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">transcript id.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addIntron">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addIntron</code><span class="sig-paren">(</span><em>df</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addIntron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a row for a new intron.</p>
+<p>Creates a dictionary with all information about the new intron. This dico
+will be parsed into a dataFrame row.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – df with gtf informations.</li>
+<li><strong>start</strong> (<em>int</em>) – intron strat.</li>
+<li><strong>end</strong> (<em>int</em>) – intron end.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:returns:row, contains all information about the new intron.
+:rtype: dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addJunction">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addJunction</code><span class="sig-paren">(</span><em>df</em>, <em>dicoTr</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addJunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a row for a new junction splice site.</p>
+<p>Creates a dictionary with all information about the new junction. This dico
+will be parsed into a dataFrame row.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – df with gtf informations.</li>
+<li><strong>dicoTr</strong> (<em>dictionary</em>) – contains transcript informations to find if the junction
+coords are over the transcript.</li>
+<li><strong>start</strong> (<em>int</em>) – intron strat.</li>
+<li><strong>end</strong> (<em>int</em>) – intron end.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:returns:row, contains all information about the new junction splice site.
+:rtype: dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addTranscript">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addTranscript</code><span class="sig-paren">(</span><em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addTranscript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply function to retrieve the transcript id of a feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<em>string</em>) – all attributes from the gtf file, corresponds to the
+ninth column of the file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">transcript id.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.addTypeTr">
+<code class="descclassname">Parser_gtf.</code><code class="descname">addTypeTr</code><span class="sig-paren">(</span><em>tr</em>, <em>dicoClass</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.addTypeTr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply function to retrieve the type of a transcript depending on biotype.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tr</strong> (<em>string</em>) – transcript id.</li>
+<li><strong>dicoClass</strong> (<em>dictionary</em>) – {transcript id : class}.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">type, coding or non coding.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.createDicoType">
+<code class="descclassname">Parser_gtf.</code><code class="descname">createDicoType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.createDicoType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a dictionnary with all sublclasses and classes of transcripts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dicoFam, contains all classes and subclasses.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.getExceptionCoords">
+<code class="descclassname">Parser_gtf.</code><code class="descname">getExceptionCoords</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.getExceptionCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get coords of unusual start/stop informations.</p>
+<p>Some chromosome are circular and genes can overlap the origin of
+replication which give strange coords. Sometimes coords are negative, other
+times they are positiv but over the max length. To correct that, we deal
+with each case indepently because their jsut a few case and it would have
+been a waste of time to try to check all possibility and compute the rigth
+coords.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>row</strong> (<em>dataFrame</em>) – row with the problem (location with a strange coords).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">start, end, right coords.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.getPointLocation">
+<code class="descclassname">Parser_gtf.</code><code class="descname">getPointLocation</code><span class="sig-paren">(</span><em>df</em>, <em>dicoTr</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.getPointLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes all point location that were not in the native gtf.</p>
+<p>Introns are firstly computed, then from them other locations are found. One
+row is added for each new location added.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – df with gtf informations.</li>
+<li><strong>dicoTr</strong> (<em>dictionary</em>) – contains transcript informations to find if the new coords
+of codons are over the transcript.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:returns:dfTmpCodon, contains all point locations (introns, junction,</dt>
+<dd>acceptor and donor).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dataFrame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.getTrClass">
+<code class="descclassname">Parser_gtf.</code><code class="descname">getTrClass</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.getTrClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read gtf file and get the class of all transcripts.</p>
+<p>Read the gtf file line by line to get all transcripts class. A lot of
+classes can be determined using the biotype, but for some short non coding
+transcripts, the length of the transcript is way higher than 200nt, so
+their class is changed to LongNC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>string</em>) – name of the gtf file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dicoCl, {transcript id : class}</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.importGTFdf">
+<code class="descclassname">Parser_gtf.</code><code class="descname">importGTFdf</code><span class="sig-paren">(</span><em>filename</em>, <em>sp</em>, <em>chr</em>, <em>dicoClass</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.importGTFdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports a gtf file into a dataframe.</p>
+<p>Read the gtf file in a dataFrame, then change the columns names. NI goes for
+‘Not Important’ (for me), those are columms that will be deleted. I also
+retrieve only what I need from attributes and then delate it. Once the
+dataFrame is parsed (all location computed mainly), the dataFrame is
+returned to be saved as a csv file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>string</em>) – name of the gtf file.</li>
+<li><strong>sp</strong> (<em>string</em>) – name of the species for which the script run.</li>
+<li><strong>chr</strong> (<em>string</em>) – name of the chr for which the script run.</li>
+<li><strong>dicoClass</strong> (<em>dictionary</em>) – {transcript id : class}.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">df, contains all transcripts feature for a species.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.parseDF">
+<code class="descclassname">Parser_gtf.</code><code class="descname">parseDF</code><span class="sig-paren">(</span><em>df</em>, <em>dicoClass</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.parseDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a dataFrame to retrieve important data and compute all locations.</p>
+<p>We only kept some locations : exon, CDS, 5UTR, 3UTR and codons. From
+attributes we kept : gene and transcript id, transcript’s biotype and
+the type of the transcript (coding or not). Then we compute the coords of
+other locations (introns, junctions) that does not exist. Codons coords are
+changed to fit with the length of point location (40 nucleotides upstream
+and downstream of the site). The case were this window would go over the
+transcript is taken in account and coords are made to not go over those of
+a transcript.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>dataFrame</em>) – contains all transcripts feature for a specie but non parsed.</li>
+<li><strong>dicoClass</strong> (<em>dictionary</em>) – {transcript id : class}.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dfTmp, parsed df.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.retrieveBiotypeFronAttributes">
+<code class="descclassname">Parser_gtf.</code><code class="descname">retrieveBiotypeFronAttributes</code><span class="sig-paren">(</span><em>attributes</em>, <em>feature</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.retrieveBiotypeFronAttributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the biotype from attributes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>feature</strong> (<em>string</em>) – transcript, gene, exon, or utr.</li>
+<li><strong>attributes</strong> (<em>list</em>) – last colons of gtf file, contains a lot of informations
+but is different depending on the feature.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">biotype of the feature. The biotype of a gene can be different
+compared to the transcript biotype.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Parser_gtf.retrieveIdTrFronAttributes">
+<code class="descclassname">Parser_gtf.</code><code class="descname">retrieveIdTrFronAttributes</code><span class="sig-paren">(</span><em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#Parser_gtf.retrieveIdTrFronAttributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the id transcript from attributes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<em>list</em>) – last colons of gtf file, contains a lot of informations
+but is different depending on the feature.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">idTr, transctipt identifier.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="shuffleStat.html" class="btn btn-neutral float-right" title="shuffleStat" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getMainDensities.html" class="btn btn-neutral float-left" title="getMainDensities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anaïs Vannutelli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

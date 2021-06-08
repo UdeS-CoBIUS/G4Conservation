@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>generateSequences &mdash; G4Conservation 1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="GeneSequences" href="GeneSequences.html" />
+    <link rel="prev" title="G4AnnotationGene" href="G4AnnotationGene.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> G4Conservation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="G4Annotation.html">G4Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="G4AnnotationGene.html">G4AnnotationGene</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">generateSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneSequences.html">GeneSequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getDataFig.html">getDataFig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getMainDensities.html">getMainDensities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parser_gtf.html">Parser_gtf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shuffleStat.html">shuffleStat</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">G4Conservation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>generateSequences</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/generateSequences.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-generateSequences">
+<span id="generatesequences"></span><h1>generateSequences<a class="headerlink" href="#module-generateSequences" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="generateSequences.createFasta">
+<code class="descclassname">generateSequences.</code><code class="descname">createFasta</code><span class="sig-paren">(</span><em>dfGTF</em>, <em>pathFasta</em>, <em>outputDir</em>, <em>opt</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.createFasta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a dictionary with information for one location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dfGTF</strong> (<em>list</em>) – row of a dataFrame that contains information about a location.</li>
+<li><strong>pathFasta</strong> (<em>string</em>) – path of the directory containing chrmosomes fasta files.</li>
+<li><strong>outputDir</strong> (<em>string</em>) – name of the output directory.</li>
+<li><strong>opt</strong> (<em>string</em>) – Both/Shuff/Wt.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">d, contains coords, strand and gene id of a location.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.createUniqID">
+<code class="descclassname">generateSequences.</code><code class="descname">createUniqID</code><span class="sig-paren">(</span><em>dfChr</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.createUniqID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the sequences of a location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dfChr</strong> (<em>dataFrame</em>) – contains information of only one chromosome.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">colUniqID, combination of many column to get a uniq ID.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">column</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.getDicoLoc">
+<code class="descclassname">generateSequences.</code><code class="descname">getDicoLoc</code><span class="sig-paren">(</span><em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.getDicoLoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a dictionary with information for one location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>w</strong> (<em>list</em>) – row of a dataFrame that contains information about a location.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">d, contains coords, strand and gene id of a location.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.getDicoLocTrBtCl">
+<code class="descclassname">generateSequences.</code><code class="descname">getDicoLocTrBtCl</code><span class="sig-paren">(</span><em>dfChr</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.getDicoLocTrBtCl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a dictionary of locations with their bt-cl and tr.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dfChr</strong> (<em>dataFrame</em>) – contains information of only one chromosome.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dicoLocTrBtCl, {locaction Id : transcriptId - biotype - class}</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.getJunctionSeq">
+<code class="descclassname">generateSequences.</code><code class="descname">getJunctionSeq</code><span class="sig-paren">(</span><em>chrSeq</em>, <em>dicoLoc</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.getJunctionSeq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the sequence of junction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>chrSeq</strong> (<em>string</em>) – sequence of one chromosome.</li>
+<li><strong>dicoLoc</strong> (<em>dictionary</em>) – contains all locations.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">seq, sequence of a junction location.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.getLocationSeq">
+<code class="descclassname">generateSequences.</code><code class="descname">getLocationSeq</code><span class="sig-paren">(</span><em>w</em>, <em>chrSeq</em>, <em>dicoLoc</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.getLocationSeq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the sequences of a location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>w</strong> (<em>list</em>) – row of a dataFrame that contains information about a location.</li>
+<li><strong>chrSeq</strong> (<em>string</em>) – sequence of one chromosome.</li>
+<li><strong>dicoLoc</strong> (<em>dictionary</em>) – contains all locations.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">seq, sequence of site location.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.getOriginSeq">
+<code class="descclassname">generateSequences.</code><code class="descname">getOriginSeq</code><span class="sig-paren">(</span><em>chrSeq</em>, <em>dicoLoc</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.getOriginSeq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the sequences for Origin overlaping location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>chrSeq</strong> (<em>string</em>) – sequence of one chromosome.</li>
+<li><strong>dicoLoc</strong> (<em>dictionary</em>) – contains all locations.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">seq, sequence of a location.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.importFastaChromosome">
+<code class="descclassname">generateSequences.</code><code class="descname">importFastaChromosome</code><span class="sig-paren">(</span><em>filename</em>, <em>chr</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.importFastaChromosome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import the fasta file containing an entire chromosome sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>string</em>) – file name containing of a chromosome fasta.</li>
+<li><strong>chr</strong> (<em>string</em>) – chromosome wanted.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">sequence, entire chromosome sequence.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.reverseSequence">
+<code class="descclassname">generateSequences.</code><code class="descname">reverseSequence</code><span class="sig-paren">(</span><em>Sequence</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.reverseSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse complement a DNA sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Sequence</strong> (<em>string</em>) – DNA sequence that will be reversed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Sequence, the initial DNA sequence but reverse complemented.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.shuffleSeq">
+<code class="descclassname">generateSequences.</code><code class="descname">shuffleSeq</code><span class="sig-paren">(</span><em>seq</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.shuffleSeq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffle a sequence.</p>
+<p>This function aims to shuffle a fasta sequence to randomize its sequence.
+The fasta sequence is imported from a fasta file, then converted into a
+list (one element corrresponds to one nucleotide), the list is shuffled and
+tehn joined with nothing to recreate the sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>seq</strong> (<em>string</em>) – sequence to shuffle.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">seq, sequence shuffled</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="generateSequences.writeFasta">
+<code class="descclassname">generateSequences.</code><code class="descname">writeFasta</code><span class="sig-paren">(</span><em>fasta</em>, <em>outputDir</em>, <em>opt</em><span class="sig-paren">)</span><a class="headerlink" href="#generateSequences.writeFasta" title="Permalink to this definition">¶</a></dt>
+<dd><p>From a dictionary {id : seq}, write a fasta file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fasta</strong> (<em>dictionary</em>) – {id : seq}</li>
+<li><strong>outputDir</strong> (<em>string</em>) – name of the output directory.</li>
+<li><strong>opt</strong> (<em>string</em>) – Both/Shuff/Wt.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="GeneSequences.html" class="btn btn-neutral float-right" title="GeneSequences" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="G4AnnotationGene.html" class="btn btn-neutral float-left" title="G4AnnotationGene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Anaïs Vannutelli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

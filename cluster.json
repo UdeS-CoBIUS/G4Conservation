@@ -1,0 +1,82 @@
+{
+  __default__":
+  {
+    "job-name": "G4Conservation.{rule}",
+    "mem": "8G",
+    "time": "0-3:00:00",
+    "mail-user": "anais.vannutelli@usherbrooke.ca",
+    "mail-type": "FAIL"
+  },
+  "download_fasta":
+  {
+    "job-name": "G4Conservation.download_fasta",
+    "mem": "8G",
+    "time": "0-01:00:00",
+  },
+  "download_gtf":
+  {
+    "job-name": "G4Conservation.download_gtf",
+    "mem": "8G",
+    "time": "0-01:00:00",
+  },
+  "parser_gtf":
+  {
+    "job-name": "G4Conservation.parser_gtf",
+    "mem": "32G",
+    "time": "0-00:30:00",
+  },
+  "mergeGtf":
+  {
+    "job-name": "G4Conservation.mergeGtf",
+    "mem": "4G",
+    "time": "0-00:30:00",
+  },
+  "generate_sequences":
+  {
+    "job-name": "G4Conservation.generate_sequences",
+    "mem": "38G",
+    "time": "0-6:00:00",
+  },
+  "geneSequences":
+  {
+    "job-name": "G4Conservation.geneSequences",
+    "mem": "16G",
+    "time": "0-6:00:00",
+  },
+  "split_fasta":
+  {
+    "job-name": "G4Conservation.generate_sequences",
+    "mem": "16G",
+    "time" : "0-02:00:00"
+  },
+  "G4RNA_screener":
+  {
+    "job-name": "G4Conservation.G4RNA_screener",
+    "mem": "2G",
+    "time": "0-7:00:00",
+  },
+  "getLocations":
+  {
+    "job-name": "G4Conservation.getLocations",
+    "mem": "2G",
+    "time": "0-15:00:00",
+  },
+   "G4Annotation":
+  {
+    "job-name": "G4Conservation.G4Annotation",
+    "mem": "32G",
+    "time": "0-24:00:00",
+  },
+  "getMAinDensities":
+  {
+    "job-name": "G4Conservation.getMAinDensities",
+    "mem": "32G",
+    "time": "0-6:00:00",
+  },
+  "getDataByClass":
+  {
+    "job-name": "G4Conservation.getDataByClass",
+    "mem": "16G",
+    "time": "0-6:00:00",
+  }
+}
